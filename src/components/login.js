@@ -1,5 +1,6 @@
 import React from 'react';
 import { supabase } from '../supabaseClient';
+import { useNavigate } from 'react-router-dom';
 
 
 const signInWithGoogle = async () => {
@@ -10,6 +11,9 @@ const signInWithGoogle = async () => {
   };
 
 
+
+
+
 const Login = () => {
   // const signInWithGoogle = async () => {
   //   const { error } = await supabase.auth.signInWithOAuth({
@@ -17,18 +21,17 @@ const Login = () => {
   //   });
   //   if (error) console.error('Login error:', error.message);
   // };
-
+  const navigate = useNavigate();
 
 
   return (
     <div>
       <button onClick={signInWithGoogle}>Sign in with Google</button>
-    <div>
       <button>Sign in with Facebook</button>
-    </div>
-    <div>
       <button>Sign in with Apple</button>
-    </div>
+      
+      {/* When Clicked sends user back to home page */}
+      <button onClick={() => navigate('/')}>Home</button>
     </div>
   );
 };
