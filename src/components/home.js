@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect }from 'react';
 import { supabase } from '../supabaseClient';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
+
+
+    //Checks if the use is logged in, it so redirects to the page that it set to
+    useEffect(() => {
+        const {
+            data: { subscription },
+            } = supabase.auth.onAuthStateChange((event, session) => {
+                if(session && session.user) {
+                    navigate('/expenses');    
+                }
+    })
+    return () => subscription.unsubscribe();
+    }, [navigate]);
 
 
     return (
