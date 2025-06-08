@@ -7,11 +7,10 @@ const Home = () => {
 
 
     return (
-        
         <div>
             <div>
                 <h1>Are you ready to start tracking your expenses </h1>
-                <p className = "Start">Start tracking your expenses</p>
+                <p>Start tracking your expenses</p>
             </div>
             <button onClick={() => navigate('/login')}>Click to Login</button>
         </div>
