@@ -40,6 +40,7 @@ const signInWithGoogle = async () => {
 
 
 
+  //Checks if the user is logged in, if so redirects to the page that it is set to
   useEffect(() => {
     const {
       data: { subscription },
